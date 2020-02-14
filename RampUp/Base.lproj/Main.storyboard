@@ -32,9 +32,43 @@
                                             <action selector="rampWasPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="TdJ-35-BqZ"/>
                                         </connections>
                                     </button>
+                                    <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="EeW-Wc-Ht0">
+                                        <rect key="frame" x="30" y="637" width="346" height="64"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kfQ-Gf-dLl">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                                <state key="normal" image="removeButton">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="removeWasPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="fsN-dz-BgB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S5d-LU-cex">
+                                                <rect key="frame" x="94" y="0.0" width="64" height="64"/>
+                                                <state key="normal" image="rotateButton">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W49-3U-EAT">
+                                                <rect key="frame" x="188" y="0.0" width="64" height="64"/>
+                                                <state key="normal" image="downArrow">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0qw-bh-vzX">
+                                                <rect key="frame" x="282" y="0.0" width="64" height="64"/>
+                                                <state key="normal" image="upArrow">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
+                                    <constraint firstItem="EeW-Wc-Ht0" firstAttribute="leading" secondItem="gch-3I-B1R" secondAttribute="leading" constant="30" id="0UU-aB-UaA"/>
+                                    <constraint firstAttribute="bottom" secondItem="EeW-Wc-Ht0" secondAttribute="bottom" constant="35" id="15y-mg-jZ9"/>
                                     <constraint firstAttribute="trailingMargin" secondItem="3a8-vd-YUF" secondAttribute="trailing" id="61m-aN-nM8"/>
                                     <constraint firstItem="3a8-vd-YUF" firstAttribute="top" secondItem="gch-3I-B1R" secondAttribute="topMargin" id="FF5-XH-C42"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="3a8-vd-YUF" secondAttribute="bottom" id="MY7-lZ-xIl"/>
@@ -54,7 +88,11 @@
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
+                        <outlet property="controls" destination="EeW-Wc-Ht0" id="0Ma-D0-QTN"/>
+                        <outlet property="downBtn" destination="W49-3U-EAT" id="kN9-9e-R5g"/>
+                        <outlet property="rotateBtn" destination="S5d-LU-cex" id="gKy-1x-QrG"/>
                         <outlet property="sceneView" destination="3a8-vd-YUF" id="7TW-vw-QDg"/>
+                        <outlet property="upBtn" destination="0qw-bh-vzX" id="u3T-rN-T6n"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -63,6 +101,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="downArrow" width="32" height="32"/>
         <image name="rampIcon" width="107" height="71"/>
+        <image name="removeButton" width="32" height="32"/>
+        <image name="rotateButton" width="32" height="32"/>
+        <image name="upArrow" width="32" height="32"/>
     </resources>
 </document>
