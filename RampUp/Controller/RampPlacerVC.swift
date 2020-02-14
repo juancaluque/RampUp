@@ -10,9 +10,14 @@ import UIKit
 import SceneKit
 import ARKit
 
-class RampPlacerVC: UIViewController, ARSCNViewDelegate {
+class RampPlacerVC: UIViewController, ARSCNViewDelegate, UIPopoverPresentationControllerDelegate {
 
+    //MARK: OUTLETS
+    
     @IBOutlet var sceneView: ARSCNView!
+    
+    //MARK: VARIABLES
+    var selectedRamp: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +29,8 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/pipe.dae")!
+        let scene = SCNScene(named: "art.scnassets/main.scn")!
+        sceneView.autoenablesDefaultLighting = true
         
         // Set the scene to the view
         sceneView.scene = scene
@@ -71,5 +77,42 @@ class RampPlacerVC: UIViewController, ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let results = sceneView.hitTest(touch.location(in: sceneView), types: .featurePoint)
+        guard let hitFeature = results.last else { return }
+        let hitTransform = SCNMatrix4(hitFeature.worldTransform)
+        let hitPosition = SCNVector3Make(hitTransform.m41, hitTransform.m42, hitTransform.m43)
+        placeRamp(position: hitPosition)
+    }
+    
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
+    }
+    
+    //MARK: @IBACTIONS
+    @IBAction func rampWasPressed(_ sender: UIButton!) {
+        let rampPickerVC = RampPickerVC(size: CGSize(width: 300, height: 550))
+        rampPickerVC.rampPlacerVC = self
+        rampPickerVC.modalPresentationStyle = .popover
+        rampPickerVC.popoverPresentationController?.delegate = self
+        present(rampPickerVC, animated: true, completion: nil)
+        rampPickerVC.popoverPresentationController?.sourceView = sender
+        rampPickerVC.popoverPresentationController?.sourceRect = sender.bounds
+    }
+    
+    func rampSelected(_ name: String) {
+        selectedRamp = name
+    }
+    
+    func placeRamp(position: SCNVector3) {
+        if let rampName = selectedRamp {
+            let ramp = Ramp.getRamp(forName: rampName)
+            ramp.position = position
+            ramp.scale = SCNVector3Make(0.01, 0.01, 0.01)
+            sceneView.scene.rootNode.addChildNode(ramp)
+        }
     }
 }

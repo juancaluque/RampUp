@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A44532C223F6DA5300822C1B /* RampPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44532C123F6DA5300822C1B /* RampPickerVC.swift */; };
+		A44532C523F6FB0000822C1B /* Ramp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44532C423F6FB0000822C1B /* Ramp.swift */; };
 		A44B738E23F588C10096D403 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B738D23F588C10096D403 /* AppDelegate.swift */; };
 		A44B739023F588C10096D403 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = A44B738F23F588C10096D403 /* art.scnassets */; };
 		A44B739223F588C10096D403 /* RampPlacerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44B739123F588C10096D403 /* RampPlacerVC.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A44532C123F6DA5300822C1B /* RampPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampPickerVC.swift; sourceTree = "<group>"; };
+		A44532C423F6FB0000822C1B /* Ramp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ramp.swift; sourceTree = "<group>"; };
 		A44B738A23F588C10096D403 /* RampUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RampUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A44B738D23F588C10096D403 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A44B738F23F588C10096D403 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -37,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A44532C323F6FAF300822C1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A44532C423F6FB0000822C1B /* Ramp.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A44B738123F588C10096D403 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +68,7 @@
 		A44B738C23F588C10096D403 /* RampUp */ = {
 			isa = PBXGroup;
 			children = (
+				A44532C323F6FAF300822C1B /* Model */,
 				A44B73A123F58A360096D403 /* Controller */,
 				A44B738D23F588C10096D403 /* AppDelegate.swift */,
 				A44B738F23F588C10096D403 /* art.scnassets */,
@@ -71,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				A44B739123F588C10096D403 /* RampPlacerVC.swift */,
+				A44532C123F6DA5300822C1B /* RampPickerVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -148,6 +162,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A44B739223F588C10096D403 /* RampPlacerVC.swift in Sources */,
+				A44532C523F6FB0000822C1B /* Ramp.swift in Sources */,
+				A44532C223F6DA5300822C1B /* RampPickerVC.swift in Sources */,
 				A44B738E23F588C10096D403 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

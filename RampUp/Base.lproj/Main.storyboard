@@ -21,12 +21,25 @@
                                     <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3a8-vd-YUF">
                                         <rect key="frame" x="8" y="8" width="398" height="720"/>
                                     </arscnView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aiO-Br-gBk">
+                                        <rect key="frame" x="287" y="630" width="107" height="71"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="71" id="MIg-h9-0Y7"/>
+                                            <constraint firstAttribute="width" constant="107" id="rgH-Ar-Fwm"/>
+                                        </constraints>
+                                        <state key="normal" image="rampIcon"/>
+                                        <connections>
+                                            <action selector="rampWasPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="TdJ-35-BqZ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailingMargin" secondItem="3a8-vd-YUF" secondAttribute="trailing" id="61m-aN-nM8"/>
                                     <constraint firstItem="3a8-vd-YUF" firstAttribute="top" secondItem="gch-3I-B1R" secondAttribute="topMargin" id="FF5-XH-C42"/>
                                     <constraint firstAttribute="bottomMargin" secondItem="3a8-vd-YUF" secondAttribute="bottom" id="MY7-lZ-xIl"/>
+                                    <constraint firstAttribute="bottom" secondItem="aiO-Br-gBk" secondAttribute="bottom" constant="35" id="PuP-RR-1kr"/>
+                                    <constraint firstAttribute="trailing" secondItem="aiO-Br-gBk" secondAttribute="trailing" constant="20" id="h3M-O9-06Y"/>
                                     <constraint firstItem="3a8-vd-YUF" firstAttribute="leading" secondItem="gch-3I-B1R" secondAttribute="leadingMargin" id="tHL-7w-egL"/>
                                 </constraints>
                             </view>
@@ -49,4 +62,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="105.97826086956522"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="rampIcon" width="107" height="71"/>
+    </resources>
 </document>
